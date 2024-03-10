@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
 .p-2 { padding: 2rem }
 .p-3 { padding: 3rem }
 
-.l-heading {
+.l-heading {  /* To target the heading of the article page */
   font-size: 3rem;
 }
 
@@ -264,6 +264,7 @@ h1, h2, h3, h4, h5, h6 {
   grid-column: 2 / span 2;  /* one row and two columns - start at 2 */
 }
 
+/* Article page */
 #article .meta {
   display: flex;
   justify-content: space-between;
