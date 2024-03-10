@@ -91,6 +91,76 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.9;
 }
 
+.card {
+  background: #fff;
+  padding: 1rem;
+}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.bg-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark a,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary a {
+  color: #fff;
+}
+
+/* Padding classes - for top / bottom (y-axis) */
+.py-1 { padding: 1.5rem 0 }
+.py-2 { padding: 2rem 0 }
+.py-3 { padding: 3rem 0 }
+/* Padding classes - for all the way around (x- and y-axis) */
+.p-1 { padding: 1.5rem }
+.p-2 { padding: 2rem }
+.p-3 { padding: 3rem }
+
+.l-heading {
+  font-size: 3rem;
+}
+
+.list li {
+  padding: .5rem 0;
+  border-bottom: #555 dotted 1px;
+  width: 90%;
+}
+
+.list li a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Inner page grid container */
+.page-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  margin: 2rem 0;
+  grid-gap: 1.5rem;
+}
+
+.page-container > *:first-child {
+  grid-row: 1 / span 3;
+}
+
 /* Navigation */
 #main-nav {
   background: #fff;
@@ -111,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #main-nav ul {
-  justify-self: end;  /* To push the ul (with its links (Home, ABout)) to the right */
+  justify-self: end;  /* To push the ul (with its links (Home, ABout)) to the right - */
   display: flex;  /* To make its childs (li) flex items */
 }
 
@@ -137,5 +207,60 @@ h1, h2, h3, h4, h5, h6 {
 #main-nav .social i {
   color: #777;
   margin-right: .5rem;  /* To spread the icons out a little bit */
+}
+
+/* Showcase */
+#showcase {
+  color: #fff;
+  background: #333;
+  padding: 2rem;
+  position: relative; /* For #showcase:before  */
+}
+
+#showcase:before {  /* To have a background image */
+  content: '';
+  background: url('../img/featured.jpg') no-repeat center center/cover;
+  position: absolute; /* To be able to lay it on top of #showcase */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4; /* The dark background (#333) makes it look as if the image is overlaid */
+}
+
+#showcase .showcase-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* To divide it in two, with only one half being used */
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+#showcase .showcase-content { 
+  z-index: 1; /* To have the text content on top of the image */
+}
+
+#showcase .showcase-content p {
+  margin-bottom: 1rem;
+}
+
+/* Home Articles */
+#home-articles .articles-container {  /* Grid container */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child { /* To only grab the first and last article (to put these in a grid to align them horizontally) */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  align-items: center;  /* To center the image */
+  grid-column: 1 / span 2;  /* one row and two columns - start at 1 */
+}
+
+#home-articles .articles-container > *:last-child {
+  grid-column: 2 / span 2;  /* one row and two columns - start at 2 */
 }
 
