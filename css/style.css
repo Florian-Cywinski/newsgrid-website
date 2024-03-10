@@ -181,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #main-nav ul {
-  justify-self: end;  /* To push the ul (with its links (Home, ABout)) to the right - */
+  justify-self: end;  /* To push the ul (with its links (Home, ABout)) to the right - Aligns the ul element within its space (e.g. 1/3 of its container - in this case 2fr (grid-template-columns: 6fr 3fr 2fr;)) (in this case to the right) - https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self */
   display: flex;  /* To make its childs (li) flex items */
 }
 
@@ -201,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #main-nav .social {
-  justify-self: center; /* To center the social icons */
+  justify-self: center; /* To center the social icons - Aligns the icons within its space (e.g. 1/3 of its container - in this case 3fr (grid-template-columns: 6fr 3fr 2fr;)) - https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self */
 }
 
 #main-nav .social i {
@@ -251,7 +251,7 @@ h1, h2, h3, h4, h5, h6 {
   grid-gap: 1rem;
 }
 
-#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:first-child, /* The * to make it more flexible - Currently it is a <article> but this way it could be changed to a <div> and it would still work */
 #home-articles .articles-container > *:last-child { /* To only grab the first and last article (to put these in a grid to align them horizontally) */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -264,3 +264,52 @@ h1, h2, h3, h4, h5, h6 {
   grid-column: 2 / span 2;  /* one row and two columns - start at 2 */
 }
 
+#article .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 0.5rem;
+}
+
+#article .meta .category {
+  margin-top: 0.4rem;
+}
+
+/* Footer */
+#main-footer {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+#main-footer img {
+  width: 150px;
+}
+
+#main-footer a {
+  color: #fff;
+}
+
+#main-footer .footer-container {  /* Grid container */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* To have four columns with the same width */
+  grid-gap: 1.5rem;
+}
+
+#main-footer .footer-container > *:last-child { /* To target the copyright */
+  background: #444;
+  grid-column: 1 / span 4;  /* To have it across the whole width (4 columns of the 2. row) */
+  padding: .5rem;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+#main-footer .footer-container input[type='email'] {  /* To target the email input field */
+  width: 90%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#main-footer .footer-container input[type='submit'] { /* To target the submit button */
+  width: 90%;
+}
