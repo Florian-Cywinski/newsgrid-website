@@ -1,0 +1,62 @@
+/* media="screen and (max-width: 768px)" -> for Tablets and @media(max-width: 600px) -> for smartphones */
+
+/* Navigation */
+#main-nav .social {
+  display: none;  /* To get rid of the social icons */
+}
+
+#main-nav .container {
+  grid-template-columns: 1fr; /* From grid-template-columns: 6fr 3fr 2fr; on larger screens - Instead of three columns per row now there is just one column */
+  grid-gap: 1.2rem;
+}
+
+#main-nav ul,
+#main-nav .logo {
+  justify-self: center; /* To center both the logo and the ul (Home, About) */
+}
+
+#main-nav ul li a {
+  padding: 0.50rem;
+}
+
+#home-articles .articles-container {
+  grid-template-columns: repeat(2, 1fr);  /* From grid-template-columns: repeat(3, 1fr); */
+}
+
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  grid-template-columns: 1fr; /* From grid-template-columns: repeat(2, 1fr); */
+  grid-column: 1;
+}
+
+@media(max-width: 600px) {
+  /* Stack Grid Items - to have one below each other */
+  #showcase .showcase-container,
+  #home-articles .articles-container,
+  #main-footer .footer-container {
+    grid-template-columns: 1fr; /* from grid-template-columns: repeat(2, 1fr); | grid-template-columns: repeat(3, 1fr); | grid-template-columns: repeat(4, 1fr); */
+  }
+
+  #main-footer .footer-container > *:last-child { /* To target the copyright */
+    grid-column: 1; /* From grid-column: 1 / span 4; */
+  }
+
+  #main-footer .footer-container > *:first-child,
+  #main-footer .footer-container > *:nth-child(2){
+    border-bottom: #444 dotted 1px; /* To create a border after the first / second child so that the individual parts are visually separated from each other */
+    padding-bottom: 1rem;
+  }
+
+  .page-container {
+    grid-template-columns: 1fr; /* From grid-template-columns: 5fr 2fr; */
+    text-align: center;
+  }
+
+  .page-container > *:first-child {
+    grid-row: 1;
+  }
+
+  .l-heading {
+    font-size: 2rem;
+  }
+}
